@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+        }
+        #password {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="generatePassword()">Generate</button>
+        <p id="password"></p>
+    </div>
+
+    <script>
+    var words = [];
+    var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", " "];
+    var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // Fetch word list from the URL and store it in the words array
+    fetch('/wordlist/words.txt')
+       .then((response) => response.text())
+       .then((text) => {
+			words = text.split('\n');
+       });
+
+
+    function getRandomElement(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function convertToLeet(password) {
+        const vowels = ["a", "e", "i", "o", "u"];
+        const leet = {"a": "4", "e": "3", "i": "1", "o": "0"};
+        var vowelCount = {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0};
+        var mostCommonVowel = "a";
+
+        // count the occurrences of each vowel
+        for (let i = 0; i < password.length; i++) {
+            let char = password[i].toLowerCase();
+            if (vowels.includes(char)) {
+                vowelCount[char]++;
+                if (vowelCount[char] > vowelCount[mostCommonVowel]) {
+                    mostCommonVowel = char;
+                }
+            }
+        }
+
+        // if the most common vowel has a leet equivalent, replace it
+        if (leet[mostCommonVowel]) {
+            let regex = new RegExp(mostCommonVowel, "gi");
+            password = password.replace(regex, leet[mostCommonVowel]);
+        }
+
+        return password;
+    }
+
+    function generatePassword() {
+        var password = "";
+        var tempPassword = "";
+        var numberOfWords = Math.floor(Math.random() * 4) + 3;
+
+        for (var i = 0; i < numberOfWords; i++) {
+            var word = getRandomElement(words);
+            var symbol = getRandomElement(symbols);
+            var number = getRandomElement(numbers);
+
+            tempPassword += word + symbol; //+ number;
+
+            if (tempPassword.length > 30) {
+                break;
+            } else {
+                password = tempPassword;
+            }
+        }
+
+        if (password.length < 15) {
+            return generatePassword(); // Recursively generate a new password if it's less than 15 characters long
+        }
+
+        password = convertToLeet(password);
+        
+        document.getElementById("password").textContent = password;
+    }
+</script>
+</body>
+</html>
