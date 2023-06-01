@@ -57,7 +57,7 @@
     // increase seperator length will be more secure but harder to remember
     function generateSeparator() {
         var separator = '';
-        var numberOfSeparators = Math.floor(Math.random() * 2) + 1;
+        var numberOfSeparators = Math.round(Math.random()) + 1; // Always returns 1 or 2
         var symbolOrNumber = [symbols, numbers];
 
         for (var i = 0; i < numberOfSeparators; i++) {
