@@ -40,31 +40,18 @@
         return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function convertToLeet(password) {
-        const vowels = ["a", "e", "i", "o", "u"];
-        const leet = {"a": "4", "e": "3", "i": "1", "o": "0"};
-        var vowelCount = {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0};
-        var mostCommonVowel = "a";
+    //randomises uppercase
+    function randomUpperCase(password) {
+            var words = password.split(/[^\w]/);
 
-        // count the occurrences of each vowel
-        for (let i = 0; i < password.length; i++) {
-            let char = password[i].toLowerCase();
-            if (vowels.includes(char)) {
-                vowelCount[char]++;
-                if (vowelCount[char] > vowelCount[mostCommonVowel]) {
-                    mostCommonVowel = char;
-                }
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var randomIndex = Math.floor(Math.random() * word.length);
+                words[i] = word.substring(0, randomIndex) + word[randomIndex].toUpperCase() + word.substring(randomIndex + 1);
             }
-        }
 
-        // if the most common vowel has a leet equivalent, replace it
-        if (leet[mostCommonVowel]) {
-            let regex = new RegExp(mostCommonVowel, "gi");
-            password = password.replace(regex, leet[mostCommonVowel]);
+            return words.join('');
         }
-
-        return password;
-    }
 
 	// generates random seperator to go between words to make dictionary attack more difficult
 	// increase seperator length will be more secure but harder to remember
@@ -96,7 +83,7 @@
             		return generatePassword();
        		 }
 
-       		 password = convertToLeet(password);
+       		 password = randomUpperCase(password);
         
        		 document.getElementById("password").textContent = password;
     	}
