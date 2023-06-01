@@ -66,40 +66,40 @@
         return password;
     }
 
-    // generates random seperator to go between words to make dictionary attack more difficult
+	// generates random seperator to go between words to make dictionary attack more difficult
 	// increase seperator length will be more secure but harder to remember
 	function generateSeparator() {
-        var separator = '';
-        var numberOfSeparators = Math.floor(Math.random() * 2) + 1;
-        var symbolOrNumber = [symbols, numbers];
+		var separator = '';
+		var numberOfSeparators = Math.floor(Math.random() * 2) + 1;
+		var symbolOrNumber = [symbols, numbers];
 
-        for (var i = 0; i < numberOfSeparators; i++) {
-            var arr = getRandomElement(symbolOrNumber);
-            separator += getRandomElement(arr);
-        }
+		for (var i = 0; i < numberOfSeparators; i++) {
+			// Ensure we alternate between symbols and numbers
+			var arr = symbolOrNumber[i % 2];
+			separator += getRandomElement(arr);
+		}
 
-        return separator;
-    }
-
-    function generatePassword() {
-        var word1 = getRandomElement(words);
-        var word2 = getRandomElement(words);
-        var word3 = getRandomElement(words);
-        var separator1 = generateSeparator();
-        var separator2 = generateSeparator();
+		return separator;
+	}
+	function generatePassword() {
+        	var word1 = getRandomElement(words);
+        	var word2 = getRandomElement(words);
+        	var word3 = getRandomElement(words);
+        	var separator1 = generateSeparator();
+        	var separator2 = generateSeparator();
 
 		// Adjust to modify how the password is constructed
-        var password = word1 + separator1 + word2 + separator2 + word3;
+        	var password = word1 + separator1 + word2 + separator2 + word3;
 
-        // If password length doesn't meet the criteria, regenerate
-        if (password.length > 30 || password.length < 15) {
-            return generatePassword();
-        }
+  		// If password length doesn't meet the criteria, regenerate
+        	if (password.length > 30 || password.length < 15) {
+            		return generatePassword();
+       		 }
 
-        password = convertToLeet(password);
+       		 password = convertToLeet(password);
         
-        document.getElementById("password").textContent = password;
-    }
+       		 document.getElementById("password").textContent = password;
+    	}
 </script>
 </body>
 </html>
