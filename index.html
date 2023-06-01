@@ -42,51 +42,51 @@
 
     //randomises uppercase
     function randomUpperCase(password) {
-            var words = password.split(/[^\w]/);
+       var words = password.split(/[^\w]/);
 
-            for (var i = 0; i < words.length; i++) {
-                var word = words[i];
-                var randomIndex = Math.floor(Math.random() * word.length);
-                words[i] = word.substring(0, randomIndex) + word[randomIndex].toUpperCase() + word.substring(randomIndex + 1);
-            }
+       for (var i = 0; i < words.length; i++) {
+         var word = words[i];
+         var randomIndex = Math.floor(Math.random() * word.length);
+         words[i] = word.substring(0, randomIndex) + word[randomIndex].toUpperCase() + word.substring(randomIndex + 1);
+       }
 
-            return words.join('');
-        }
+       return words.join('');
+    }
 
-	// generates random seperator to go between words to make dictionary attack more difficult
-	// increase seperator length will be more secure but harder to remember
-	function generateSeparator() {
-		var separator = '';
-		var numberOfSeparators = Math.floor(Math.random() * 2) + 1;
-		var symbolOrNumber = [symbols, numbers];
+    // generates random seperator to go between words to make dictionary attack more difficult
+    // increase seperator length will be more secure but harder to remember
+    function generateSeparator() {
+        var separator = '';
+        var numberOfSeparators = Math.floor(Math.random() * 2) + 1;
+        var symbolOrNumber = [symbols, numbers];
 
-		for (var i = 0; i < numberOfSeparators; i++) {
-			// Ensure we alternate between symbols and numbers
-			var arr = symbolOrNumber[i % 2];
-			separator += getRandomElement(arr);
-		}
-
-		return separator;
+        for (var i = 0; i < numberOfSeparators; i++) {
+            // Ensure we alternate between symbols and numbers
+            var arr = symbolOrNumber[i % 2];
+            separator += getRandomElement(arr);
 	}
-	function generatePassword() {
-        	var word1 = getRandomElement(words);
-        	var word2 = getRandomElement(words);
-        	var word3 = getRandomElement(words);
-        	var separator1 = generateSeparator();
-        	var separator2 = generateSeparator();
 
-		// Adjust to modify how the password is constructed
-        	var password = word1 + separator1 + word2 + separator2 + word3;
+	return separator;
+    }
+    function generatePassword() {
+        var word1 = getRandomElement(words);
+        var word2 = getRandomElement(words);
+        var word3 = getRandomElement(words);
+        var separator1 = generateSeparator();
+        var separator2 = generateSeparator();
 
-  		// If password length doesn't meet the criteria, regenerate
-        	if (password.length > 30 || password.length < 15) {
-            		return generatePassword();
-       		 }
+	// Adjust to modify how the password is constructed
+        var password = word1 + separator1 + word2 + separator2 + word3;
 
-       		 password = randomUpperCase(password);
+  	// If password length doesn't meet the criteria, regenerate
+        if (password.length > 30 || password.length < 15) {
+         	return generatePassword();
+       	}
+
+       	 password = randomUpperCase(password);
         
-       		 document.getElementById("password").textContent = password;
-    	}
+       	 document.getElementById("password").textContent = password;
+    }
 </script>
 </body>
 </html>
