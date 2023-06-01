@@ -56,17 +56,16 @@
     // generates random seperator to go between words to make dictionary attack more difficult
     // increase seperator length will be more secure but harder to remember
     function generateSeparator() {
-        var separator = '';
-        var numberOfSeparators = Math.round(Math.random()) + 1; // Always returns 1 or 2
-        var symbolOrNumber = [symbols, numbers];
+		var separator = '';
+        var numberOfSeparators = Math.round(Math.random()) + 1;
+        var arrIndex = Math.round(Math.random());
 
         for (var i = 0; i < numberOfSeparators; i++) {
-            // Ensure we alternate between symbols and numbers
-            var arr = symbolOrNumber[i % 2];
+            var arr = (i === 0) ? symbols : numbers;
             separator += getRandomElement(arr);
-	}
+        }
 
-	return separator;
+        return separator;
     }
     function generatePassword() {
         var word1 = getRandomElement(words);
