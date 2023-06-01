@@ -42,15 +42,17 @@
 
     //randomises uppercase
     function randomUpperCase(password) {
-       var words = password.split(/[^\w]/);
+        var randomIndex = Math.floor(Math.random() * password.length);
+        var beforeChar = password.substring(0, randomIndex);
+        var charToChange = password[randomIndex];
+        var afterChar = password.substring(randomIndex + 1);
 
-       for (var i = 0; i < words.length; i++) {
-         var word = words[i];
-         var randomIndex = Math.floor(Math.random() * word.length);
-         words[i] = word.substring(0, randomIndex) + word[randomIndex].toUpperCase() + word.substring(randomIndex + 1);
-       }
+        // Ensure the character we're changing is a letter. If not, try again.
+        if (!charToChange.match(/[a-z]/i)) {
+            return randomUpperCase(password);
+        }
 
-       return words.join('');
+        return beforeChar + charToChange.toUpperCase() + afterChar;
     }
 
     // generates random seperator to go between words to make dictionary attack more difficult
