@@ -10,7 +10,6 @@ absent
 absolute
 absolutely
 absorb
-abuse
 academic
 accent
 accept
@@ -33,7 +32,6 @@ acid
 acknowledge
 acquire
 across
-act
 action
 active
 actively
@@ -42,9 +40,7 @@ actor
 actress
 actual
 actually
-ad
 adapt
-add
 addition
 additional
 address
@@ -66,7 +62,6 @@ advertisement
 advertising
 advice
 advise
-affair
 affect
 affection
 afford
@@ -76,25 +71,19 @@ afternoon
 afterwards
 again
 against
-age
 aged
 agency
 agent
 aggressive
-ago
 agree
 agreement
 ahead
-aid
-aim
-air
 aircraft
 airport
 alarm
 alarmed
 alarming
 alcohol
-alcoholic
 alive
 all
 allied
@@ -199,7 +188,6 @@ artificially
 artist
 artistic
 artistically
-as
 ashamed
 aside
 ask
@@ -213,7 +201,6 @@ associated
 association
 assume
 assure
-at
 atmosphere
 atom
 attach
@@ -277,7 +264,6 @@ bathroom
 battery
 battle
 bay
-be
 beach
 beak
 bear
@@ -429,7 +415,6 @@ campaign
 camping
 can
 cancel
-cancer
 candidate
 candy
 cannot
@@ -459,7 +444,6 @@ cat
 catch
 category
 cause
-CD
 cease
 ceiling
 celebrate
@@ -836,7 +820,6 @@ diagram
 diamond
 diary
 dictionary
-die
 diet
 difference
 different
@@ -895,7 +878,6 @@ divide
 division
 divorce
 divorced
-do
 doctor
 document
 dog
@@ -927,8 +909,6 @@ drive
 driver
 driving
 drop
-drug
-drugstore
 drum
 drunk
 dry
@@ -938,7 +918,6 @@ dump
 during
 dust
 duty
-DVD
 dying
 each
 ear
@@ -1163,7 +1142,7 @@ favourite
 fear
 feather
 feature
-February
+february
 federal
 fee
 feed
@@ -1331,7 +1310,6 @@ glass
 global
 glove
 glue
-go
 goal
 god
 gold
@@ -1399,7 +1377,6 @@ hat
 hate
 hatred
 have
-he
 head
 headache
 heal
@@ -1608,7 +1585,6 @@ irritating
 island
 issue
 item
-its
 itself
 jacket
 jam
@@ -1628,9 +1604,9 @@ joy
 judge
 judgement
 juice
-July
+july
 jump
-June
+june
 junior
 just
 justice
@@ -1813,10 +1789,8 @@ mathematics
 matter
 maximum
 may
-May
 maybe
 mayor
-me
 meal
 mean
 meaning
@@ -1878,9 +1852,8 @@ mixture
 mobile
 model
 modern
-mom
 moment
-Monday
+monday
 money
 monitor
 month
@@ -1974,7 +1947,6 @@ noisily
 noisy
 none
 nonsense
-nor
 normal
 normally
 north
@@ -1986,7 +1958,7 @@ nothing
 notice
 noticeable
 novel
-November
+november
 now
 nowhere
 nuclear
@@ -2438,7 +2410,6 @@ relief
 religion
 religious
 rely
-rely
 remain
 remaining
 remains
@@ -2646,9 +2617,6 @@ severe
 severely
 sew
 sewing
-sex
-sexual
-sexually
 shade
 shadow
 shake
@@ -3066,7 +3034,6 @@ tire
 tired
 tiring
 title
-to
 today
 toe
 together
@@ -3215,7 +3182,6 @@ upwards
 urban
 urge
 urgent
-us
 use
 used
 useful
